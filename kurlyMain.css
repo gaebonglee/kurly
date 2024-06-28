@@ -1,0 +1,239 @@
+/*기본 css*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Noto Sans KR", "malgun gothic", AppleGothic, dotum, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+/*기본 css*/
+
+.header_Utilities {
+  position: relative;
+  width: 1050px;
+  height: 100px;
+  margin: 0px auto;
+}
+
+.userService_wrap {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.userService_wrap span {
+  width: 1px;
+  height: 13px;
+  margin: 0px 12px;
+  background-color: gray;
+}
+
+.userService_wrap .join {
+  display: block;
+  color: rgb(95, 0, 128);
+  cursor: pointer;
+}
+
+.customerCenter_wrap {
+  line-height: 35px;
+  position: relative;
+}
+.customerCenter_category {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 35px;
+  width: 130px;
+  padding: 5px 10px;
+  border: 1px solid rgb(221, 221, 221);
+  background-color: rgb(255, 255, 255);
+}
+
+.searchIcon_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  padding-top: 35px;
+}
+
+.MainPage.kurlyLogo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 63px;
+}
+
+.MainPage.kurlyLogo button {
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.kurlyLogo button:first-of-type {
+  color: rgb(95, 0, 128);
+}
+
+.kurlyLogo button:first-of-type::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 14px;
+  margin-top: 5px;
+  margin-left: 11px;
+  background-color: rgb(226, 226, 226);
+}
+
+.kurlyLogo button:last-of-type {
+  color: rgb(179, 179, 179);
+}
+
+.kurlyLogo button:last-of-type::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 14px;
+  margin-top: 5px;
+  margin-left: 11px;
+  background-color: rgb(226, 226, 226);
+}
+
+.MainPage.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 48px;
+  padding-left: 14px;
+  border: 1px solid rgb(95, 0, 128);
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+}
+.MainPage.searchBox input {
+  width: 300px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: lightgray;
+}
+
+.MainPage.searchBox button {
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  bottom: 3px;
+  background-color: inherit;
+  border: none;
+  color: rgb(95, 0, 128);
+}
+
+.MainPage.IconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.MainPage.IconWrap button {
+  background-color: inherit;
+  border: none;
+  width: 36px;
+  height: 36px;
+  font-size: 25px;
+  color: rgb(37, 37, 37);
+}
+
+.header_category {
+  position: relative;
+  z-index: 300;
+  min-width: 1050px;
+  background-color: #fff;
+}
+
+.inner_headerCategory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 1050px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+.categoryHidden {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 150px;
+  margin-right: 73px;
+}
+
+.categoryHidden a {
+  display: block;
+  overflow: hidden;
+  height: 56px;
+  padding-top: 18px;
+  font-size: 15px;
+  color: #333;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.categoryFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryFlex > li {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 55px;
+  padding-top: 18px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+}
+
+.infoDelivery {
+  height: 32px;
+  padding: 5px 15px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  background-color: #fff;
+  font-size: 12px;
+  color: #666;
+  line-height: 16px;
+  text-align: center;
+  opacity: 1;
+}
+.infoDelivery .emph {
+  padding-right: 3px;
+  font-weight: 700;
+  color: #5f0080;
+}

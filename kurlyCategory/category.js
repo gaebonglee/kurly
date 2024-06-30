@@ -3,83 +3,73 @@ document.addEventListener("DOMContentLoaded", function () {
   const primaryCategoryWrap = document.querySelector(".primaryCategory_wrap");
   const primaryCategories = document.querySelectorAll(".primaryCategory");
   const subCategoryWrap = document.querySelector(".subCategory_wrap");
-  const subCategories = document.querySelectorAll(".subCategory");
 
   categoryContainer.addEventListener("mouseenter", function () {
     primaryCategoryWrap.style.display = "flex";
   });
 
-  categoryContainer.addEventListener("mouseleave", function (event) {
+  // 마우스가 카테고리 컨테이너, 대분류 카테고리 영역, 서브 카테고리 영역에 있을 때는 숨기지 않음
+  categoryContainer.addEventListener("mouseleave", function (e) {
     if (
-      !primaryCategoryWrap.contains(event.relatedTarget) &&
-      !subCategoryWrap.contains(event.relatedTarget)
+      !primaryCategoryWrap.contains(e.relatedTarget) &&
+      !subCategoryWrap.contains(e.relatedTarget)
     ) {
       primaryCategoryWrap.style.display = "none";
-      subCategories.forEach((subCategory) => {
+      subCategoryWrap.style.display = "none";
+      document.querySelectorAll(".subCategory").forEach((subCategory) => {
+        subCategory.classList.remove("show");
         subCategory.style.display = "none";
       });
     }
   });
 
-  primaryCategoryWrap.addEventListener("mouseleave", function (event) {
+  primaryCategoryWrap.addEventListener("mouseleave", function (e) {
     if (
-      !categoryContainer.contains(event.relatedTarget) &&
-      !subCategoryWrap.contains(event.relatedTarget)
+      !categoryContainer.contains(e.relatedTarget) &&
+      !subCategoryWrap.contains(e.relatedTarget)
     ) {
       primaryCategoryWrap.style.display = "none";
-      subCategories.forEach((subCategory) => {
+      subCategoryWrap.style.display = "none";
+      document.querySelectorAll(".subCategory").forEach((subCategory) => {
+        subCategory.classList.remove("show");
         subCategory.style.display = "none";
       });
     }
-    subCategoryWrap.style.display = "block";
   });
 
+  subCategoryWrap.addEventListener("mouseleave", function (e) {
+    if (
+      !categoryContainer.contains(e.relatedTarget) &&
+      !primaryCategoryWrap.contains(e.relatedTarget)
+    ) {
+      subCategoryWrap.style.display = "none";
+      document.querySelectorAll(".subCategory").forEach((subCategory) => {
+        subCategory.classList.remove("show");
+        subCategory.style.display = "none";
+      });
+    }
+  });
+
+  // 각 대분류 카테고리에 마우스가 들어가면 해당 서브 카테고리 보이기
   primaryCategories.forEach((category) => {
     category.addEventListener("mouseenter", function () {
-      const id = category.id;
-      subCategories.forEach((subCategory) => {
-        if (subCategory.id === id) {
-          subCategory.style.display = "block";
-        } else {
-          subCategory.style.display = "none";
-        }
+      // 모든 서브 카테고리 숨기기
+      document.querySelectorAll(".subCategory").forEach((subCategory) => {
+        subCategory.classList.remove("show");
+        subCategory.style.display = "none"; // display 속성 변경
       });
-      subCategoryWrap.style.display = "block";
-    });
 
-    category.addEventListener("mouseleave", function (event) {
-      if (
-        !event.relatedTarget ||
-        !event.relatedTarget.closest(".subCategory")
-      ) {
-        subCategories.forEach((subCategory) => {
-          if (!subCategory.contains(event.relatedTarget)) {
-            subCategory.style.display = "none";
-          }
-        });
+      // 해당 서브 카테고리 보이기
+      const subCategory = document.querySelector(
+        `.subCategory[id="${category.id}"]`
+      );
+      if (subCategory) {
+        subCategory.style.display = "block"; // display 속성 변경
+        setTimeout(() => {
+          subCategory.classList.add("show");
+        }, 0); // 딜레이를 0으로 설정하여 다음 렌더링 사이클에서 opacity 전환이 시작되도록 함
+        subCategoryWrap.style.display = "flex";
       }
     });
-  });
-
-  subCategories.forEach((subCategory) => {
-    subCategory.addEventListener("mouseenter", function () {
-      subCategory.style.display = "block";
-    });
-
-    subCategory.addEventListener("mouseleave", function () {
-      subCategory.style.display = "none";
-    });
-  });
-
-  subCategoryWrap.addEventListener("mouseleave", function (event) {
-    if (
-      !primaryCategoryWrap.contains(event.relatedTarget) &&
-      !categoryContainer.contains(event.relatedTarget)
-    ) {
-      subCategories.forEach((subCategory) => {
-        subCategory.style.display = "none";
-      });
-      primaryCategoryWrap.style.display = "none";
-    }
   });
 });

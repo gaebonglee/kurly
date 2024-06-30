@@ -4,14 +4,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-html,
-button,
-input,
-select,
-textarea {
-  font-family: "Noto Sans KR", "malgun gothic", AppleGothic, dotum, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 button {
@@ -186,6 +179,8 @@ button {
   float: left;
   width: 150px;
   margin-right: 73px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .categoryHidden a {
